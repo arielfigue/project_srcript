@@ -7,11 +7,13 @@ odoo = odoorpc.ODOO('192.168.56.101', 'jsonrpc', 8069)
 # establecer tiempo de espera largo
 odoo.config['timeout'] = 6000
 
+database = 'bd1'
+
 # crear la base de datos
-odoo.db.create('root', 'cfg_auto', demo=False, lang='es_MX', admin_password='admin')
+odoo.db.create('root', database, demo=False, lang='es_MX', admin_password='admin')
 
 # loguearse en la base de datos
-odoo.login('cfg_auto', 'admin', 'admin')
+odoo.login(database, 'admin', 'admin')
 print "logueado en la bd"
 
 # instalar modulos
