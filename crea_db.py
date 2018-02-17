@@ -65,3 +65,34 @@ cfg_stock_val = cfg_stock.create({
     })
 cfg_stock.execute(cfg_stock_val)
 print "modulo stock configurado"
+
+# configurar modulo de ventas
+print "iniciando configuracion de modulo de ventas ..."
+cfg_sale = odoo.env['sale.config.settings']
+cfg_sale_val = cfg_sale.create({
+    'group_product_variant' : 1,
+    'group_uom' : 1,
+    'default_invoice_policy' : 'delivery', #[order] [delivery]
+    'deposit_product_id_setting' : '',
+    'module_website_sale_digital' : True,
+    'sale_pricelist_setting' : 'formula', #[fixed][percentage][formula]
+    'sale_note' : 'Precios y condiciones sujetas a cambios sin previo aviso',
+    'group_sale_delivery_address' : 1,
+    'group_display_incoterm' : 0,
+    'group_discount_per_so_line' : 1,
+    'module_sale_margin' : 1,
+    'group_sale_layout' : 0,
+    'auto_done_setting' : 1,
+    'group_warning_sale' : 1,
+    'sale_show_tax' : 'subtotal', #[subtotal] [total]
+    'module_sale_contract' : True,
+    'group_route_so_lines' : 0,
+    'group_mrp_properties' : 0,
+    'module_sale_order_dates' : 0,
+    'module_website_quote' : 0,
+    'security_lead' : 3,
+    'module_delivery' : 1,
+    'default_picking_policy' : 1,
+    })
+cfg_sale.execute(cfg_sale_val)
+print "modulo de ventas configurado"
